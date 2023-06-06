@@ -140,4 +140,40 @@ public class LibraryManagementSystem {
         String searchTitle = "To Kill a Mockingbird";
         Book foundBook = library.searchBook(searchTitle);
         if (foundBook != null) {
-            System.out.println("
+            System.out.println("Book found: " + foundBook);
+        } else {
+            System.out.println("Book \"" + searchTitle + "\" not found");
+        }
+
+        // Search member
+        int searchId = 123;
+        Member foundMember = library.searchMember(searchId);
+        if (foundMember != null) {
+            System.out.println("Member found: " + foundMember);
+        } else {
+            System.out.println("Member with ID " + searchId + " not found");
+        }
+
+        // View all books
+        System.out.println("All books:");
+        List<Book> allBooks = library.getAllBooks();
+        for (Book book : allBooks) {
+            System.out.println(book);
+        }
+
+        // View all members
+        System.out.println("All members:");
+        List<Member> allMembers = library.getAllMembers();
+        for (Member member : allMembers) {
+            System.out.println(member);
+        }
+
+        // Issue book
+        Book bookToIssue = book2;
+        library.issueBook(bookToIssue, member1);
+
+        // Return book
+        Book bookToReturn = book2;
+        library.returnBook(bookToReturn);
+    }
+}
